@@ -8,6 +8,7 @@ import logging
 import configparser
 import tiktoken
 from tinytroupe import utils
+import fickling
 
 logger = logging.getLogger("tinytroupe")
 
@@ -320,7 +321,7 @@ class OpenAIClient:
         Loads the API cache from disk.
         """
         # unpickle
-        return pickle.load(open(self.cache_file_name, "rb")) if os.path.exists(self.cache_file_name) else {}
+        return fickling.load(open(self.cache_file_name, "rb")) if os.path.exists(self.cache_file_name) else {}
 
     def get_embedding(self, text, model=default["embedding_model"]):
         """
