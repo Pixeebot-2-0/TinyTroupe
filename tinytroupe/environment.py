@@ -29,7 +29,7 @@ class TinyWorld:
     # Whether to display environments communications or not, for all environments. 
     communication_display = True
 
-    def __init__(self, name: str="A TinyWorld", agents=[], 
+    def __init__(self, name: str="A TinyWorld", agents=None, 
                  initial_datetime=datetime.datetime.now(),
                  broadcast_if_no_target=True):
         """
@@ -42,6 +42,7 @@ class TinyWorld:
                 Defaults to the current datetime in the real world.
             broadcast_if_no_target (bool): If True, broadcast actions if the target of an action is not found.
         """
+        agents = [] if agents is None else agents
 
         self.name = name
         self.current_datetime = initial_datetime

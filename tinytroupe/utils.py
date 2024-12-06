@@ -10,7 +10,7 @@ import textwrap
 import logging
 import chevron
 import copy
-from typing import Collection
+from typing import Optional, Collection
 from datetime import datetime
 from pathlib import Path
 import configparser
@@ -25,12 +25,13 @@ logger = logging.getLogger("tinytroupe")
 # Model input utilities
 ################################################################################
 
-def compose_initial_LLM_messages_with_templates(system_template_name:str, user_template_name:str=None, rendering_configs:dict={}) -> list:
+def compose_initial_LLM_messages_with_templates(system_template_name:str, user_template_name:str=None, rendering_configs:Optional[dict]=None) -> list:
     """
     Composes the initial messages for the LLM model call, under the assumption that it always involves 
     a system (overall task description) and an optional user message (specific task description). 
     These messages are composed using the specified templates and rendering configurations.
     """
+    rendering_configs = {} if rendering_configs is None else rendering_configs
 
     system_prompt_template_path = os.path.join(os.path.dirname(__file__), f'prompts/{system_template_name}')
     user_prompt_template_path = os.path.join(os.path.dirname(__file__), f'prompts/{user_template_name}')

@@ -669,10 +669,11 @@ class TinyPerson(JsonSerializableRegistry):
         self.semantic_memory.add_web_urls(web_urls)
     
     @transactional
-    def move_to(self, location, context=[]):
+    def move_to(self, location, context=None):
         """
         Moves to a new location and updates its internal cognitive state.
         """
+        context = [] if context is None else context
         self._configuration["current_location"] = location
 
         # context must also be updated when moved, since we assume that context is dictated partly by location.

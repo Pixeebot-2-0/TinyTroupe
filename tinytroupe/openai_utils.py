@@ -116,7 +116,7 @@ class OpenAIClient:
                      top_p=default["top_p"],
                      frequency_penalty=default["frequency_penalty"],
                      presence_penalty=default["presence_penalty"],
-                     stop=[],
+                     stop=None,
                      timeout=default["timeout"],
                      max_attempts=default["max_attempts"],
                      waiting_time=default["waiting_time"],
@@ -141,6 +141,7 @@ class OpenAIClient:
         Returns:
         A dictionary representing the generated response.
         """
+        stop = [] if stop is None else stop
 
         def aux_exponential_backoff():
             nonlocal waiting_time
