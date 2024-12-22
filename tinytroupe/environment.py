@@ -288,7 +288,7 @@ class TinyWorld:
             else:
                 raise ValueError(f"Agent names must be unique, but '{agent.name}' is already in the environment.")
         else:
-            logger.warn(f"Agent {agent.name} is already in the environment.")
+            logger.warning(f"Agent {agent.name} is already in the environment.")
         
         return self # for chaining
 
