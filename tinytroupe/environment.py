@@ -309,7 +309,7 @@ class TinyWorld:
         """
         Removes all agents from the environment.
         """
-        logger.debug(f"Removing all agents from the environment.")
+        logger.debug("Removing all agents from the environment.")
         self.agents = []
         self.name_to_agent = {}
 
