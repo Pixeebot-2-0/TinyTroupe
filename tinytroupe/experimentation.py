@@ -1,6 +1,6 @@
-import random
 import pandas as pd
 from tinytroupe.agent import TinyPerson
+import secrets
 
 class ABRandomizer():
 
@@ -45,7 +45,7 @@ class ABRandomizer():
             b (str): second choice
         """
         # use the seed
-        if random.Random(self.random_seed).random() < 0.5:
+        if secrets.SystemRandom().Random(self.random_seed).random() < 0.5:
             self.choices[i] = (0, 1)
             return a, b
             
