@@ -6,7 +6,7 @@ class ABRandomizer():
 
     def __init__(self, real_name_1="control", real_name_2="treatment",
                        blind_name_a="A", blind_name_b="B",
-                       passtrough_name=[],
+                       passtrough_name=None,
                        random_seed=42):
         """
         An utility class to randomize between two options, and de-randomize later.
@@ -24,6 +24,7 @@ class ABRandomizer():
                                     returned as-is.
             random_seed (int): the random seed to use
         """
+        passtrough_name = [] if passtrough_name is None else passtrough_name
 
         self.choices = {}
         self.real_name_1 = real_name_1
