@@ -1403,7 +1403,7 @@ class FilesAndWebGroundingFaculty(TinyMentalFaculty):
             if len(documents_names) > 0:
                 agent.think(f"I have the following documents available to me: {documents_names}")
             else:
-                agent.think(f"I don't have any documents available for inspection.")
+                agent.think("I don't have any documents available for inspection.")
             
             return True
 
